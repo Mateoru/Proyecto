@@ -1,0 +1,209 @@
+package com.mycompany.tfc;
+
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+
+public class TFC {
+
+    public static void main(String[] args) {
+
+        Scanner sn = new Scanner(System.in);
+
+        boolean salir = false;
+        int opcion;
+        Profesores profesor1 = new Profesores("0953454758", "Pedro Carbo Ruiz", "Guayaquil");
+        Profesores profesor2 = new Profesores("0953457759", "Juan Zapata Abad", "Manta");
+        Profesores profesor3 = new Profesores("1264636779", "Mario Bond Apache", "Loja");
+        Profesores profesor4 = new Profesores("1234567890", "Alberto Lema Pinto", "Guayaquil");
+        Profesores profesor5 = new Profesores("1050628475", "Diego Rubio Espinosa", "Manta");
+        
+        
+        
+        TrabajoFinal trabajo1 = new TrabajoFinal(1, "", "POO");
+        TrabajoFinal trabajo2 = new TrabajoFinal(2, "2022-12-08", "PYTHON");
+        TrabajoFinal trabajo3 = new TrabajoFinal(3, "2021-12-02", "Java");
+        TrabajoFinal trabajo4 = new TrabajoFinal(4, "2020-10-05", "Java Scrip");
+        TrabajoFinal trabajo5 = new TrabajoFinal(5, "2019-12-08", "C++");
+
+        
+        
+        
+        List<Profesores> lista_pro_al1 = new ArrayList<>();
+        List<Profesores> lista_pro_al2 = new ArrayList<>();
+        List<Profesores> lista_pro_al3 = new ArrayList<>();
+
+        lista_pro_al1.add(profesor2);
+        lista_pro_al1.add(profesor3);
+        lista_pro_al2.add(profesor1);
+        lista_pro_al2.add(profesor3);
+        lista_pro_al3.add(profesor4);
+        lista_pro_al3.add(profesor5);
+        
+
+        Alumnos alumno1 = new Alumnos(205311, "0123476548", "Juan Mero Rodrigue", profesor1, trabajo1, lista_pro_al1);
+        Alumnos alumno2 = new Alumnos(397311, "0200931020", "Martha Sanchez Delgado", profesor2, trabajo2, lista_pro_al2);
+        Alumnos alumno3 = new Alumnos(224448, "1707311658", "Mateo Rubio Mero", profesor3, trabajo4, lista_pro_al3);
+        Alumnos alumno4 = new Alumnos(657841,"0961030284","Lily Morales Asitimbay",profesor4,trabajo5,lista_pro_al3);
+        Alumnos alumno5 = new Alumnos(679855,"0961030284","Claudia Rubio Mero",profesor5,trabajo3,lista_pro_al1);
+        
+
+        List<Alumnos> list_alumnos = new ArrayList<>();
+        List<Alumnos> list_alumnos_dirigos_profesor1 = new ArrayList<>();
+        List<Alumnos> list_alumnos_dirigos_profesor2 = new ArrayList<>();
+        List<Alumnos> list_alumnos_dirigos_profesor3 = new ArrayList<>();
+        List<Alumnos> list_alumnos_dirigos_profesor4 = new ArrayList<>();
+        List<Alumnos> list_alumnos_dirigos_profesor5 = new ArrayList<>();
+
+        List<Profesores> list_profesores = new ArrayList<>();
+
+        list_alumnos.add(alumno1);
+        list_alumnos.add(alumno2);
+        list_alumnos.add(alumno3);
+        list_alumnos.add(alumno4);
+        list_alumnos.add(alumno5);
+
+        list_alumnos_dirigos_profesor1.add(alumno1);
+        list_alumnos_dirigos_profesor2.add(alumno2);
+        list_alumnos_dirigos_profesor2.add(alumno3);
+        list_alumnos_dirigos_profesor2.add(alumno4);
+        list_alumnos_dirigos_profesor2.add(alumno5);
+        list_alumnos_dirigos_profesor3.add(alumno3);
+        list_alumnos_dirigos_profesor3.add(alumno1);
+        list_alumnos_dirigos_profesor4.add(alumno2);
+        list_alumnos_dirigos_profesor4.add(alumno4);
+        list_alumnos_dirigos_profesor5.add(alumno3);
+        list_alumnos_dirigos_profesor5.add(alumno5);
+        
+        
+       
+        
+        profesor1.setListaAlumnos(list_alumnos_dirigos_profesor1);
+        profesor3.setListaAlumnos(list_alumnos_dirigos_profesor2);
+        profesor2.setListaAlumnos(list_alumnos_dirigos_profesor2);
+        profesor5.setListaAlumnos(list_alumnos_dirigos_profesor3);
+        profesor4.setListaAlumnos(list_alumnos_dirigos_profesor2);
+        
+
+        list_profesores.add(profesor1);
+        list_profesores.add(profesor2);
+        list_profesores.add(profesor3);
+        list_profesores.add(profesor4);
+        list_profesores.add(profesor5);
+
+        List<Alumnos> list_alumnos_grupos_inves1 = new ArrayList<>();
+        list_alumnos_grupos_inves1.add(alumno1);
+        list_alumnos_grupos_inves1.add(alumno2);
+        
+        List<Alumnos> list_alumnos_grupos_inves2 = new ArrayList<>();
+        list_alumnos_grupos_inves2.add(alumno3);
+        list_alumnos_grupos_inves2.add(alumno4);
+        
+        List<Alumnos> list_alumnos_grupos_inves3 = new ArrayList<>();
+        list_alumnos_grupos_inves3.add(alumno5);
+        list_alumnos_grupos_inves3.add(alumno1);
+
+        List<Profesores> list_profesoresComite1 = new ArrayList<>();
+        list_profesoresComite1.add(profesor1);
+        list_profesoresComite1.add(profesor2);
+        list_profesoresComite1.add(profesor3);
+        
+        List<Profesores> list_profesoresComite2 = new ArrayList<>();
+        list_profesoresComite2.add(profesor4);
+        list_profesoresComite2.add(profesor5);
+        
+
+        List<GrupoInvestigacion> list_grupo_inv = new ArrayList<>();
+        GrupoInvestigacion grupo1 = new GrupoInvestigacion(1, "Primer grupo", 2, "2022-12-'07", list_alumnos_grupos_inves1);
+        GrupoInvestigacion grupo2 = new GrupoInvestigacion(2, "Segundo grupo", 2, "2021-12-'011", list_alumnos_grupos_inves2);
+        GrupoInvestigacion grupo3 = new GrupoInvestigacion(3, "Tercer grupo", 2, "2022-10-'03", list_alumnos_grupos_inves3);
+
+        list_grupo_inv.add(grupo1);
+        list_grupo_inv.add(grupo2);
+        list_grupo_inv.add(grupo3);
+        
+
+        List<Comite> list_Comite = new ArrayList<>();
+        Comite comite1 = new Comite("Comite 1", 2, "Auditorio", 2, "2022-12-10", alumno1, list_profesoresComite1);
+        Comite comite2 = new Comite("Comite 2", 1, "Auditorio", 2, "2022-12-10", alumno2, list_profesoresComite2);
+        
+        
+        
+        list_Comite.add(comite1);
+        list_Comite.add(comite2);
+
+        while (!salir) {
+
+            System.out.println("--Bienvenidos al menu de Opciones--");
+            System.out.println("1. Lista de alumnos");
+            System.out.println("2. Lista de profesores");
+            System.out.println("3. Profesores que dirigen");
+            System.out.println("4. Comité con profesores");
+            System.out.println("5. Grupo de Investigación");
+            System.out.println("6. Salir ");
+
+            try {
+
+                System.out.println("Digite la opcion que desea: ");
+                opcion = sn.nextInt();
+
+                switch (opcion) {
+                    case 1 -> {
+
+                        System.out.println("«LISTA DE ALUMNOS»");
+                        for (int i = 0; i < list_alumnos.size(); i++) {
+                            list_alumnos.get(i).imprimirAlumno();
+                        }
+
+                    }
+                    case 2 -> {
+
+                        System.out.println("«LISTA DE PROFESORES»");
+                        for (int i = 0; i < list_profesores.size(); i++) {
+                            list_profesores.get(i).imprimirProfesor();
+                        }
+
+                    }
+                    case 3 -> {
+                        System.out.println("«LISTA DE PROFESORES QUE DIRIGEN»");
+                        for (int i = 0; i < list_profesores.size(); i++) {
+                            list_profesores.get(i).imprimirProfesorDirigen();
+                        }
+                    }
+                    case 4 -> {
+                        System.out.println("«LISTA DE COMITES»");
+                        for (int i = 0; i < list_Comite.size(); i++) {
+                            list_Comite.get(i).imprimirComite();
+                        }
+                    }
+                    case 5 -> {
+                        System.out.println("«LISTA DE GRUPOS DE INVESTIGACIÓN»");
+                        for (int i = 0; i < list_grupo_inv.size(); i++) {
+                            list_grupo_inv.get(i).imprimirGrupo();
+                        }
+                    }
+
+                    case 6 -> {
+                        salir = true;
+                    }
+
+                    default ->
+                        System.out.println("«Las opciones son entre 1 y 5»");
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("«DEBE SER UN NUMERO DE LAS OPCIONES!!» ");
+                sn.next();
+            }
+
+        }
+
+        System.out.println(
+                "Fin del menu");
+        System.out.println(
+                "Muchas gracias por usar el menu de opciones ");
+    }
+
+}
